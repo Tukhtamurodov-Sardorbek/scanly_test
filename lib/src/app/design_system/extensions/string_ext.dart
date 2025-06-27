@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 extension StringExt on String {
   Color get asColor {
@@ -36,10 +37,12 @@ extension StringExt on String {
       key: key,
       fit: fit,
       color: color,
-      width: width,
-      height: height,
+      width: width?.w,
+      height: height?.h,
       alignment: alignment ?? Alignment.center,
       image: AssetImage(this),
     );
   }
+
+  String get needsToBeTranslated => this;
 }

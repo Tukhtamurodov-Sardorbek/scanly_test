@@ -18,7 +18,7 @@ class EntryCubit extends Cubit<EntryState> {
     } else {
       emit(EntryState.introduced(times == 1));
     }
-    _updateRunTime();
-    // _usecase.clearStorage();
+    // _updateRunTime();
+    _usecase.clearStorage();
   }
 }

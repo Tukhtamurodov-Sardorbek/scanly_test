@@ -6,5 +6,5 @@ mixin GetAppBloc {
 
   static PopHandlerCubit popHandlerCubit() => GetIt.I.get<PopHandlerCubit>();
 
-  static AppReviewCubit appReviewCubit() => GetIt.I.get<AppReviewCubit>();
+  // static AppReviewCubit appReviewCubit() => GetIt.I.get<AppReviewCubit>();
 }

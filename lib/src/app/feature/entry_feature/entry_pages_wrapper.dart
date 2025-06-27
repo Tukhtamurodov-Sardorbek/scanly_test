@@ -11,6 +11,7 @@ class EntryPagesWrapper extends AutoRouter implements AutoRouteWrapper {
     return MultiBlocProvider(
       providers: [
         BlocProvider(lazy: false, create: (_) => GetAppBloc.entryCubit()),
+        // BlocProvider(lazy: false, create: (_) => GetAppBloc.appReviewCubit()),
         BlocProvider(lazy: false, create: (_) => GetAppBloc.popHandlerCubit()),
       ],
       child: this,

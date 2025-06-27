@@ -56,5 +56,10 @@
     	<string>ru</string>     <!-- Russian -->
     	<string>en</string>     <!-- English -->
     </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>itms</string>
+    </array>
+
 </dict>
 </plist>

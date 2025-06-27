@@ -18,6 +18,7 @@ abstract class  LocaleKeys {
   static const enjoyingMobileApp = 'enjoyingMobileApp';
   static const tapAStarToRateItOnTheAppStore = 'tapAStarToRateItOnTheAppStore';
   static const notNow = 'notNow';
+  static const oneMomentPleaseWait = 'oneMomentPleaseWait';
   static const _ = '_';
 
 }

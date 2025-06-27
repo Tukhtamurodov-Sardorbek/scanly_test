@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:scanly_test/generated/locale_keys.g.dart';
 import 'package:scanly_test/src/app/design_system/design_system.dart';
+import 'package:scanly_test/src/app/design_system/widgets/loading_view.dart';
 import 'package:scanly_test/src/app/feature/entry_feature/components/entry_button.dart';
 import 'package:scanly_test/src/app/navigation/di/get.dart';
 

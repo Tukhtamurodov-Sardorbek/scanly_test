@@ -96,10 +96,7 @@ class _SplashPageState extends State<SplashPage> {
                 child: DownToUp(
                   withPosition: false,
                   delayFactor: 1,
-                  child: SizedBox(
-                    width: 250,
-                    child: AppAsset.logo.displayImage(),
-                  ),
+                  child: AppAsset.logo.displayImage(width: 250),
                   onFinish: () {
                     Future.delayed(const Duration(milliseconds: 200), () {
                       _canNavigate = true;

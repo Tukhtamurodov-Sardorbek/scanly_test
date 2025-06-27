@@ -1,33 +1,49 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:in_app_review/in_app_review.dart';
+// import 'package:in_app_review/in_app_review.dart';
+import 'package:rate_my_app/rate_my_app.dart';
 import 'package:scanly_test/generated/locale_keys.g.dart';
 import 'package:scanly_test/src/app/design_system/design_system.dart';
 import 'package:scanly_test/src/app/feature/entry_feature/components/entry_button.dart';
 import 'package:scanly_test/src/app/navigation/di/get.dart';
 
 @RoutePage()
-class RatePage extends StatefulWidget {
+class RatePage extends StatefulWidget implements AutoRouteWrapper {
   const RatePage({super.key});
 
   @override
   State<RatePage> createState() => _RatePageState();
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return RateMyAppBuilder(
+        rateMyApp: RateMyApp(
+          googlePlayIdentifier: 'com.android.chrome',
+          appStoreIdentifier: 'com.apple.mobilesafari',
+
+        ),
+        onInitialized: (context, instance){},
+        builder: (context){
+          return this;
+        },
+    );
+  }
 }
 
 class _RatePageState extends State<RatePage> {
-  late final InAppReview _appReview;
+  // late final InAppReview _appReview;
 
   @override
   void initState() {
     super.initState();
-    _appReview = InAppReview.instance;
-    Future.microtask(() async {
-      final result = await _appReview.isAvailable();
-      if (result) {
-        _appReview.requestReview();
-      }
-    });
+    // _appReview = InAppReview.instance;
+    // Future.microtask(() async {
+    //   final result = await _appReview.isAvailable();
+    //   if (result) {
+    //     _appReview.requestReview();
+    //   }
+    // });
   }
 
   @override

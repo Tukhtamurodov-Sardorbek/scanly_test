@@ -30,6 +30,7 @@ class CodegenLoader extends AssetLoader{
   "enjoyingMobileApp": "Enjoying Mobile App?",
   "tapAStarToRateItOnTheAppStore": "Tap a star to rate it on the App Store",
   "notNow": "Not now",
+  "oneMomentPleaseWait": "One moment, please wait",
   "_": ""
 };
 static const Map<String,dynamic> _ru = {
@@ -48,6 +49,7 @@ static const Map<String,dynamic> _ru = {
   "enjoyingMobileApp": "Enjoying Mobile App?",
   "tapAStarToRateItOnTheAppStore": "Tap a star to rate it on the App Store",
   "notNow": "Not now",
+  "oneMomentPleaseWait": "One moment, please wait",
   "_": ""
 };
 static const Map<String,dynamic> _pt = {
@@ -66,6 +68,7 @@ static const Map<String,dynamic> _pt = {
   "enjoyingMobileApp": "Enjoying Mobile App?",
   "tapAStarToRateItOnTheAppStore": "Tap a star to rate it on the App Store",
   "notNow": "Not now",
+  "oneMomentPleaseWait": "One moment, please wait",
   "_": ""
 };
 static const Map<String,dynamic> _en = {
@@ -84,6 +87,7 @@ static const Map<String,dynamic> _en = {
   "enjoyingMobileApp": "Enjoying Mobile App?",
   "tapAStarToRateItOnTheAppStore": "Tap a star to rate it on the App Store",
   "notNow": "Not now",
+  "oneMomentPleaseWait": "One moment, please wait",
   "_": ""
 };
 static const Map<String,dynamic> _it = {
@@ -102,6 +106,7 @@ static const Map<String,dynamic> _it = {
   "enjoyingMobileApp": "Enjoying Mobile App?",
   "tapAStarToRateItOnTheAppStore": "Tap a star to rate it on the App Store",
   "notNow": "Not now",
+  "oneMomentPleaseWait": "One moment, please wait",
   "_": ""
 };
 static const Map<String,dynamic> _fr = {
@@ -120,6 +125,7 @@ static const Map<String,dynamic> _fr = {
   "enjoyingMobileApp": "Enjoying Mobile App?",
   "tapAStarToRateItOnTheAppStore": "Tap a star to rate it on the App Store",
   "notNow": "Not now",
+  "oneMomentPleaseWait": "One moment, please wait",
   "_": ""
 };
 static const Map<String,dynamic> _es = {
@@ -138,6 +144,7 @@ static const Map<String,dynamic> _es = {
   "enjoyingMobileApp": "Enjoying Mobile App?",
   "tapAStarToRateItOnTheAppStore": "Tap a star to rate it on the App Store",
   "notNow": "Not now",
+  "oneMomentPleaseWait": "One moment, please wait",
   "_": ""
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"de": _de, "ru": _ru, "pt": _pt, "en": _en, "it": _it, "fr": _fr, "es": _es};
