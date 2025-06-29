@@ -10,6 +10,8 @@ abstract class  LocaleKeys {
   static const frLanguage = 'frLanguage';
   static const ruLanguage = 'ruLanguage';
   static const enLanguage = 'enLanguage';
+  static const documents = 'documents';
+  static const document = 'document';
   static const pdfScanner = 'pdfScanner';
   static const easilyScanDocumentsOrConvertThemToPdf = 'easilyScanDocumentsOrConvertThemToPdf';
   static const rateUs = 'rateUs';
@@ -18,7 +20,18 @@ abstract class  LocaleKeys {
   static const enjoyingMobileApp = 'enjoyingMobileApp';
   static const tapAStarToRateItOnTheAppStore = 'tapAStarToRateItOnTheAppStore';
   static const notNow = 'notNow';
+  static const search = 'search';
   static const oneMomentPleaseWait = 'oneMomentPleaseWait';
+  static const noDocumentFound = 'noDocumentFound';
+  static const tapTheButtonBellowToScanOrConvertToPDF = 'tapTheButtonBellowToScanOrConvertToPDF';
+  static const rename = 'rename';
+  static const print = 'print';
+  static const share = 'share';
+  static const save = 'save';
+  static const cancel = 'cancel';
+  static const edit = 'edit';
+  static const add = 'add';
+  static const delete = 'delete';
   static const _ = '_';
 
 }

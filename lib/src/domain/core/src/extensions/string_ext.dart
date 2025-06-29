@@ -7,3 +7,7 @@ extension NullableStringExtension on String? {
     return isEmpty;
   }
 }
+
+extension StringExt on String {
+  String get needsToBeTranslated => this;
+}

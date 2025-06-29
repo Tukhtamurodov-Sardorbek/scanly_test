@@ -36,7 +36,7 @@ class _Indicator extends StatelessWidget {
       width: 5.w,
       height: isActive ? 32.h : 12.h,
       decoration: BoxDecoration(
-        color: isActive ? AppColor.of(context).primaryTone : AppColor.lightGrey,
+        color: isActive ? AppColor.primaryTone : AppColor.lightGrey,
         borderRadius: BorderRadius.circular(88),
       ),
     );

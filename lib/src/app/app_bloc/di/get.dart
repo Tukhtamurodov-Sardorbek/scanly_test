@@ -7,4 +7,6 @@ mixin GetAppBloc {
   static PopHandlerCubit popHandlerCubit() => GetIt.I.get<PopHandlerCubit>();
 
   // static AppReviewCubit appReviewCubit() => GetIt.I.get<AppReviewCubit>();
+
+  static ScannerBloc scannerBloc() => GetIt.I.get<ScannerBloc>();
 }

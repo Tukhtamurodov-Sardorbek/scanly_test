@@ -17,4 +17,7 @@ final class AppTextStyle {
 
   static TextStyle get w400 =>
       const TextStyle(fontWeight: FontWeight.w400, fontStyle: FontStyle.normal);
+
+  static TextStyle get w300 =>
+      const TextStyle(fontWeight: FontWeight.w300, fontStyle: FontStyle.normal);
 }

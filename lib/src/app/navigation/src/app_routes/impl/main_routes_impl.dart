@@ -5,7 +5,4 @@ import 'package:scanly_test/src/app/navigation/src/app_routes/main_routes.dart';
 class MainRoutesImpl extends MainRoutes {
   @override
   PageRouteInfo getHomeRouter() => const HomeRoute();
-
-  @override
-  PageRouteInfo getDetailsRouter() => const DetailsRoute();
 }

@@ -17,6 +17,7 @@ enum SplashType {
 
 extension WidgetExt on Widget {
   Widget buttonize({
+    Key? key,
     required VoidCallback? onTap,
     bool withBouncingAnimation = false,
     BorderRadius? borderRadius,
@@ -31,12 +32,15 @@ extension WidgetExt on Widget {
       return this;
     }
     if (withBouncingAnimation) {
-      return AnimationButtonEffect(onTap: onTap, child: this);
+      return AnimationButtonEffect(key: key, onTap: onTap, child: this);
     }
+
     final defaultColor = splashType == SplashType.noSplash
         ? Colors.transparent
         : null;
+
     return Material(
+      key: key,
       type: MaterialType.transparency,
       child: InkWell(
         onTap: onTap,

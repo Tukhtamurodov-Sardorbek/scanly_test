@@ -90,7 +90,6 @@ class _RatePageState extends State<RatePage> {
                               LocaleKeys.rateUs.tr(),
                               style: AppTextStyle.w600.modifier(
                                 fontSize: 36,
-                                isDark: context.isDark,
                               ),
                             ),
                             Flexible(
@@ -99,8 +98,7 @@ class _RatePageState extends State<RatePage> {
                                 maxLines: 4,
                                 style: AppTextStyle.w400.modifier(
                                   fontSize: 20,
-                                  isDark: context.isDark,
-                                  color: AppColor.secondaryText,
+                                  color: AppColor.textSecondary,
                                 ),
                               ),
                             ),
@@ -142,7 +140,7 @@ class _Indicator extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: isActive
-              ? AppColor.of(context).primaryTone
+              ? AppColor.primaryTone
               : AppColor.lightGrey,
           borderRadius: BorderRadius.circular(88),
         ),

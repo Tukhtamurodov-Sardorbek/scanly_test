@@ -10,5 +10,6 @@ export 'package:scanly_test/src/app/design_system/widgets/animations/down_to_up.
 export 'package:scanly_test/src/app/design_system/extensions/widget.dart';
 export 'package:scanly_test/src/app/design_system/extensions/string_ext.dart';
 export 'package:scanly_test/src/app/design_system/extensions/text_style_ext.dart';
+export 'package:scanly_test/src/app/design_system/extensions/date_time.dart';
 export 'package:scanly_test/src/app/design_system/assets/app_asset.dart';
 export 'package:scanly_test/src/app/design_system/widgets/animations/animated_dots_indicator.dart';

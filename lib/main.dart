@@ -17,6 +17,8 @@ void main() {
       final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
       FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+      configureDependencies();
+
       SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(
           systemNavigationBarColor: Colors.transparent,
@@ -29,8 +31,6 @@ void main() {
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge),
         SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]),
       ]);
-
-      configureDependencies();
 
       if (kDebugMode) {
         Bloc.observer = AppBlocObserver();

@@ -7,6 +7,7 @@ import 'package:scanly_test/src/app/navigation/src/app_routes/main_routes.dart';
 
 @module
 abstract class NavigatorModule {
+  @Order(-1)
   @singleton
   AppRouter injectAppRouter() => AppRouter();
 

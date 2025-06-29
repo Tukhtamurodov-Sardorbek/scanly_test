@@ -5,7 +5,6 @@ import 'package:scanly_test/src/app/feature/entry_feature/screens/rate_page.dart
 import 'package:scanly_test/src/app/feature/home_feature/details_page/details_page.dart';
 import 'package:scanly_test/src/app/feature/home_feature/home_page/home_page.dart';
 import 'package:scanly_test/src/app/feature/home_feature/main_page.dart';
-import 'package:scanly_test/src/app/feature/home_feature/main_page_wrapper.dart';
 import 'package:scanly_test/src/app/feature/entry_feature/screens/splash_page.dart';
 
 part 'app_router.gr.dart';
@@ -27,16 +26,12 @@ class AppRouter extends RootStackRouter {
       ],
     ),
     AutoRoute(
-      path: '/mainWrapper',
-      page: MainRouteWrapper.page,
+      page: MainRoute.page,
       children: [
         AutoRoute(
           initial: true,
-          page: MainRoute.page,
-          children: [
-            AutoRoute(page: HomeRoute.page),
-            AutoRoute(page: DetailsRoute.page),
-          ],
+          page: HomeRoute.page,
+          children: [AutoRoute(page: DetailsRoute.page)],
         ),
       ],
     ),

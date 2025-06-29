@@ -69,23 +69,7 @@ class MainRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const MainPage();
-    },
-  );
-}
-
-/// generated route for
-/// [MainPageWrapper]
-class MainRouteWrapper extends PageRouteInfo<void> {
-  const MainRouteWrapper({List<PageRouteInfo>? children})
-    : super(MainRouteWrapper.name, initialChildren: children);
-
-  static const String name = 'MainRouteWrapper';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const MainPageWrapper());
+      return WrappedRoute(child: const MainPage());
     },
   );
 }
@@ -117,7 +101,7 @@ class RateRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const RatePage();
+      return WrappedRoute(child: const RatePage());
     },
   );
 }

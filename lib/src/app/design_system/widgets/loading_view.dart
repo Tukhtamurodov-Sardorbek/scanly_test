@@ -6,33 +6,39 @@ import 'package:scanly_test/src/app/design_system/design_system.dart';
 class LoadingView extends StatelessWidget {
   const LoadingView({super.key});
 
-  static List<Widget> get view {
-    return [
-      Positioned.fill(
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(color: Colors.transparent),
-        ),
+  static Widget get blur {
+    return BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+      child: Container(color: Colors.transparent),
+    ).wrapWithDownToUpAnimation(delayFactor: 0.1);
+  }
+
+  static Widget get logo {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AppAsset.logo
+              .displayImage(width: 150)
+              .wrapWithDownToUpAnimation(delayFactor: 0.5),
+          24.verticalSpace,
+          AnimatedTypingDots(
+            localeKey: LocaleKeys.oneMomentPleaseWait,
+          ).wrapWithDownToUpAnimation(delayFactor: 0.64),
+        ],
       ),
-      Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AppAsset.logo
-                .displayImage(width: 150)
-                .wrapWithDownToUpAnimation(delayFactor: 0.5),
-            24.verticalSpace,
-            AnimatedTypingDots(
-              localeKey: LocaleKeys.oneMomentPleaseWait,
-            ).wrapWithDownToUpAnimation(delayFactor: 0.64),
-          ],
-        ),
-      ),
-    ];
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Stack(children: view));
+    return Scaffold(
+      body: Stack(
+        children: [
+          Positioned.fill(child: blur),
+          logo,
+        ],
+      ),
+    );
   }
 }

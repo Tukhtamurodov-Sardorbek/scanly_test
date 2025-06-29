@@ -44,8 +44,7 @@ class _AnimatedTypingDotsState extends State<AnimatedTypingDots>
   }
 
   TextStyle get _effectiveStyle {
-    return widget.textStyle ??
-        AppTextStyle.w500.modifier(fontSize: 19, isDark: context.isDark);
+    return widget.textStyle ?? AppTextStyle.w500.modifier(fontSize: 19);
   }
 
   @override

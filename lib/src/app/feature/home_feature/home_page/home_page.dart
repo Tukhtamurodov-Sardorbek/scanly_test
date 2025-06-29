@@ -1,8 +1,21 @@
+import 'dart:io' show File;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:scanly_test/src/app/design_system/assets/app_asset.dart';
+import 'package:scanly_test/src/app/app_bloc/app_bloc.dart';
 import 'package:scanly_test/src/app/design_system/design_system.dart';
+import 'package:scanly_test/src/app/feature/home_feature/main_page.dart';
+import 'package:scanly_test/src/domain/core/core.dart';
+import 'package:scanly_test/src/domain/model/model.dart';
+
+part 'components/app_bar.dart';
+
+part 'components/body.dart';
+
+part 'components/empty_view.dart';
+
+part 'components/list_tile.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -13,138 +26,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late final ScrollController _scrollController;
   late final TextEditingController _textEditingController;
 
   @override
   void initState() {
     super.initState();
+    _scrollController = ScrollController();
     _textEditingController = TextEditingController();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.secondaryBackground,
-      body: CustomScrollView(
-        slivers: <Widget>[
-          CupertinoSliverNavigationBar(
-            stretch: true,
-            alwaysShowMiddle: false,
-            middle: Text('PixelScan'),
-            largeTitle: AppAsset.logo.displayImage(width: 150, height: 34),
-            bottomMode: NavigationBarBottomMode.always,
-            bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(60),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(18, 0, 18, 8),
-                child: ValueListenableBuilder(
-                  valueListenable: _textEditingController,
-                  builder: (context, value, _) {
-                    return CupertinoSearchTextField(
-                      itemSize: 24,
-                      prefixIcon: SizedBox.shrink(),
-                      backgroundColor: AppColor.of(context).appropriate,
-                      controller: _textEditingController,
-                      prefixInsets: EdgeInsetsGeometry.zero,
-                      suffixMode: OverlayVisibilityMode.always,
-                      placeholder: 'Search...'.needsToBeTranslated,
-                      padding: const EdgeInsetsDirectional.symmetric(
-                        horizontal: 22,
-                        vertical: 14,
-                      ),
-                      suffixInsets: const EdgeInsetsDirectional.fromSTEB(
-                        0,
-                        14,
-                        22,
-                        14,
-                      ),
-                      style: AppTextStyle.w500.modifier(
-                        fontSize: 17,
-                        isDark: context.isDark,
-                      ),
-                      placeholderStyle: AppTextStyle.w400.modifier(
-                        isDark: context.isDark,
-                        fontSize: 17,
-                        color: AppColor.lowLight,
-                      ),
-                      suffixIcon: Icon(
-                        value.text.isEmpty
-                            ? CupertinoIcons.search
-                            : CupertinoIcons.xmark,
-                        color: AppColor.light.text,
-                      ),
-                      onSuffixTap: () {
-                        if (value.text.isNotEmpty) {
-                          _textEditingController.clear();
-                        }
-                      },
-                      onChanged: (_) {
-                        print('LOOK: ${value.runtimeType}');
-                        print('LOOK: ${value}');
-                        print('LOOK: ${value.text}');
-                      },
-                    );
-                  },
-                ),
-              ),
-            ),
-          ),
-
-          SliverPadding(
-            padding: const EdgeInsets.all(8.0).r,
-            sliver: DecoratedSliver(
-              decoration: BoxDecoration(
-                color: AppColor.of(context).appropriate,
-                borderRadius: BorderRadius.circular(
-                  DesignConstants.borderRadius,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 1),
-                    blurRadius: 1,
-                    spreadRadius: 0,
-                    color: AppColor.whiteShadow6,
-                  ),
-                  BoxShadow(
-                    offset: Offset(0, 3),
-                    blurRadius: 3,
-                    spreadRadius: 0,
-                    color: AppColor.whiteShadow5,
-                  ),
-                  BoxShadow(
-                    offset: Offset(0, 6),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: AppColor.whiteShadow3,
-                  ),
-                  BoxShadow(
-                    offset: Offset(0, 10),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                    color: AppColor.whiteShadow1,
-                  ),
-                  BoxShadow(
-                    offset: Offset(0, 16),
-                    blurRadius: 5,
-                    spreadRadius: 0,
-                    color: AppColor.whiteShadow0,
-                  ),
-                ],
-              ),
-              sliver: SliverPadding(
-                padding: const EdgeInsets.all(16.0).r,
-                sliver: SliverList(
-                  delegate: SliverChildBuilderDelegate((
-                    BuildContext context,
-                    int index,
-                  ) {
-                    return ListTile(title: Text('Item #$index'));
-                  }, childCount: 50),
-                ),
-              ),
-            ),
-          ),
-        ],
+      body: SafeArea(
+        child: CustomScrollView(
+          controller: _scrollController,
+          slivers: <Widget>[
+            _AppBar(_textEditingController),
+            _BodyView(_scrollController),
+          ],
+        ),
       ),
     );
   }

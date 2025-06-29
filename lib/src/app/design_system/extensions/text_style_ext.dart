@@ -4,7 +4,6 @@ import 'package:scanly_test/src/app/design_system/colors/app_color.dart';
 
 extension TextStyleExt on TextStyle {
   TextStyle modifier({
-    required bool isDark,
     bool? inherit,
     Color? color,
     Color? backgroundColor,
@@ -35,9 +34,9 @@ extension TextStyleExt on TextStyle {
   }) {
     return copyWith(
       inherit: inherit,
-      color: color ?? (isDark ? AppColor.dark.text : AppColor.light.text),
-      backgroundColor: backgroundColor,
       fontSize: fontSize?.sp,
+      color: color ?? AppColor.text,
+      backgroundColor: backgroundColor,
       fontWeight: fontWeight,
       fontStyle: fontStyle,
       letterSpacing: letterSpacing,

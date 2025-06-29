@@ -89,21 +89,14 @@ class _TitleView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title.tr(),
-            style: AppTextStyle.w600.modifier(
-              fontSize: 36,
-              isDark: context.isDark,
-            ),
-          ),
+          Text(title.tr(), style: AppTextStyle.w600.modifier(fontSize: 36)),
           Flexible(
             child: Text(
               subtitle.tr(),
               maxLines: 4,
               style: AppTextStyle.w400.modifier(
                 fontSize: 20,
-                isDark: context.isDark,
-                color: AppColor.secondaryText,
+                color: AppColor.textSecondary,
               ),
             ),
           ),

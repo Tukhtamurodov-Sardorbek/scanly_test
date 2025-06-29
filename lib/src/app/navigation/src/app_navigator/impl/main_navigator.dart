@@ -10,6 +10,6 @@ class MainNavigatorImpl extends MainNavigator {
 
   @override
   Future<void> navigateToMainPage(BuildContext context) {
-    return context.router.replaceAll([const MainRouteWrapper()]);
+    return context.router.replaceAll([const MainRoute()]);
   }
 }

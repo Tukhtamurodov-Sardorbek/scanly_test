@@ -2,7 +2,9 @@ import 'package:get_it/get_it.dart';
 import 'package:scanly_test/src/app/navigation/navigation.dart';
 import 'package:scanly_test/src/app/navigation/src/app_routes/main_routes.dart';
 
-mixin GetAppNavigator {
+final class GetAppNavigator {
+  const GetAppNavigator._();
+
   static AppRouter appRouter() {
     return GetIt.I.get<AppRouter>();
   }
@@ -16,11 +18,10 @@ mixin GetAppNavigator {
   }
 }
 
-mixin GetAppRoute {
+final class GetAppRoute {
+  const GetAppRoute._();
+
   static PageRouteInfo get homeRouter {
     return GetIt.I.get<MainRoutes>().getHomeRouter();
-  }
-  static PageRouteInfo get detailsRouter {
-    return GetIt.I.get<MainRoutes>().getDetailsRouter();
   }
 }

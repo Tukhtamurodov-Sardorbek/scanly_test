@@ -12,7 +12,7 @@ class EntryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: AppColor.of(context).primaryTone,
+        color: AppColor.primaryTone,
         borderRadius: BorderRadius.circular(DesignConstants.borderRadius),
         boxShadow: [
           BoxShadow(
@@ -59,7 +59,6 @@ class EntryButton extends StatelessWidget {
                 style: AppTextStyle.w500.modifier(
                   fontSize: 17,
                   color: AppColor.white,
-                  isDark: context.isDark,
                 ),
               ),
               AppAsset.arrow.displayImage(width: 48),

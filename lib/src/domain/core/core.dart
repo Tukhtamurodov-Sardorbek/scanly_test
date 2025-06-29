@@ -7,3 +7,4 @@ export 'package:scanly_test/src/domain/core/src/locale.dart';
 export 'package:scanly_test/src/domain/core/src/extensions/future_ext.dart';
 export 'package:scanly_test/src/domain/core/src/extensions/list_ext.dart';
 export 'package:scanly_test/src/domain/core/src/extensions/string_ext.dart';
+export 'package:scanly_test/src/domain/core/src/debug_console_printer.dart';
