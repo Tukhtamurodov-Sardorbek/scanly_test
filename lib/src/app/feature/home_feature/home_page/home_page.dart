@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:scanly_test/src/app/app_bloc/app_bloc.dart';
 import 'package:scanly_test/src/app/design_system/design_system.dart';
 import 'package:scanly_test/src/app/feature/home_feature/main_page.dart';
+import 'package:scanly_test/src/app/navigation/di/get.dart';
 import 'package:scanly_test/src/domain/core/core.dart';
 import 'package:scanly_test/src/domain/model/model.dart';
 

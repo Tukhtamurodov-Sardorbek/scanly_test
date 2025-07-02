@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:scanly_test/src/app/design_system/assets/app_asset.dart';
 
 extension UiStringExt on String {
+  String get asSVG => replaceAll('png', 'svg');
+
   Color get asColor {
     int length = this.length;
     int value = 0;
@@ -30,15 +34,30 @@ extension UiStringExt on String {
     double? width,
     double? height,
     Color? color,
-    BoxFit? fit,
-    AlignmentGeometry? alignment,
+    BoxFit fit = BoxFit.scaleDown,
+    AssetType type = AssetType.png,
+    Alignment alignment = Alignment.center,
+    BlendMode colorBlendMode = BlendMode.srcIn,
   }) {
+    if (type == AssetType.svg) {
+      return SvgPicture.asset(
+        asSVG,
+        width: width,
+        height: height,
+        colorFilter: color == null
+            ? null
+            : ColorFilter.mode(color, colorBlendMode),
+        fit: fit,
+        alignment: alignment,
+      );
+    }
     return Image(
       key: key,
       fit: fit,
       color: color,
       width: width?.w,
       height: height?.h,
+      colorBlendMode: colorBlendMode,
       alignment: alignment ?? Alignment.center,
       image: AssetImage(this),
     );

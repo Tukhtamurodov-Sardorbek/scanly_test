@@ -51,9 +51,11 @@ class _OnboardPageState extends State<OnboardPage> {
               child: AppAsset.backgroundSquares.displayImage(),
             ),
             Positioned(
-              left: 26,
+              // left: 26,
               top: 38,
-              right: 26,
+              // right: 26,
+              left: 0,
+              right: 0,
               bottom: 38,
               child: _OnboardPageView(),
             ),

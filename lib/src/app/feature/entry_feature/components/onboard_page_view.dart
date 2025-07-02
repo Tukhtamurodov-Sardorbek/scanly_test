@@ -8,21 +8,24 @@ class _OnboardPageView extends StatelessWidget {
     final reference = OnboardPage.of(context);
     return Column(
       children: [
-        IntrinsicHeight(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _IndicatorView(),
-              20.horizontalSpace,
-              ValueListenableBuilder(
-                valueListenable: reference.currentIndex,
-                builder: (context, currentIndex, child) {
-                  return _TitleView(currentIndex);
-                },
-              ),
-            ],
-          ),
-        ).wrapWithDownToUpAnimation(delayFactor: 0.3),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 26),
+          child: IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _IndicatorView(),
+                20.horizontalSpace,
+                ValueListenableBuilder(
+                  valueListenable: reference.currentIndex,
+                  builder: (context, currentIndex, child) {
+                    return _TitleView(currentIndex);
+                  },
+                ),
+              ],
+            ),
+          ).wrapWithDownToUpAnimation(delayFactor: 0.3),
+        ),
         22.verticalSpace,
         ValueListenableBuilder(
           valueListenable: reference.currentIndex,
@@ -52,16 +55,19 @@ class _OnboardPageView extends StatelessWidget {
           },
         ).wrapWithDownToUpAnimation(delayFactor: 0.4),
         const Spacer(),
-        EntryButton(
-          onTap: () {
-            final value = reference.currentIndex.value;
-            if (value == 0) {
-              reference.currentIndex.value = 1;
-            } else {
-              GetAppNavigator.mainNavigator().navigateToMainPage(context);
-            }
-          },
-        ).wrapWithDownToUpAnimation(delayFactor: 0.5),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 26),
+          child: EntryButton(
+            onTap: () {
+              final value = reference.currentIndex.value;
+              if (value == 0) {
+                reference.currentIndex.value = 1;
+              } else {
+                GetAppNavigator.mainNavigator().navigateToMainPage(context);
+              }
+            },
+          ).wrapWithDownToUpAnimation(delayFactor: 0.5),
+        ),
       ],
     );
   }

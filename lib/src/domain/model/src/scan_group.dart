@@ -6,7 +6,9 @@ enum SortType {
   latestFirst,
   earliestFirst;
 
-  bool get isLatestFirst => this == SortType.latestFirst;
+  bool get isLatestFirst => this == latestFirst;
+
+  SortType get other => isLatestFirst ? earliestFirst : latestFirst;
 }
 
 class ScanGroup extends Equatable {
@@ -38,13 +40,17 @@ class ScanGroup extends Equatable {
     };
   }
 
-  ScanGroup copyWith({String? title}) {
+  ScanGroup copyWith({
+    String? title,
+    String? thumbnailPath,
+    List<String>? imagesPath,
+  }) {
     return ScanGroup(
       id: id,
-      imagesPath: imagesPath,
-      creationTime: creationTime,
       title: title ?? this.title,
-      thumbnailPath: thumbnailPath,
+      creationTime: creationTime,
+      imagesPath: imagesPath ?? this.imagesPath,
+      thumbnailPath: thumbnailPath ?? this.thumbnailPath,
     );
   }
 

@@ -6,4 +6,4 @@ import 'package:scanly_test/src/app/app_bloc/di/module.dart';
 final getIt = GetIt.instance;
 
 @InjectableInit()
-void configureDependencies() => getIt.init();
+Future<void> configureDependencies() => getIt.init();

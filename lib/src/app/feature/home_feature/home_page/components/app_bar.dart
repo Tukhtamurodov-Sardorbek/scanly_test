@@ -17,9 +17,9 @@ class _AppBar extends StatelessWidget {
         preferredSize: const Size.fromHeight(80),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 18, 18, 8),
-          child: ValueListenableBuilder(
-            valueListenable: _textEditingController,
-            builder: (context, value, _) {
+          child: AnimatedBuilder(
+            animation: _textEditingController,
+            builder: (context, _) {
               return CupertinoSearchTextField(
                 itemSize: 24,
                 prefixIcon: SizedBox.shrink(),
@@ -44,20 +44,18 @@ class _AppBar extends StatelessWidget {
                   color: AppColor.lowLight,
                 ),
                 suffixIcon: Icon(
-                  value.text.isEmpty
+                  _textEditingController.value.text.isEmpty
                       ? CupertinoIcons.search
                       : CupertinoIcons.xmark,
                   color: AppColor.text,
                 ),
                 onSuffixTap: () {
-                  if (value.text.isNotEmpty) {
+                  if (_textEditingController.value.text.isNotEmpty) {
                     _textEditingController.clear();
                   }
                 },
-                onChanged: (_) {
-                  print('LOOK: ${value.runtimeType}');
-                  print('LOOK: ${value}');
-                  print('LOOK: ${value.text}');
+                onChanged: (value) {
+                  context.read<ScannerBloc>().add(ScannerEvent.search(value));
                 },
               );
             },

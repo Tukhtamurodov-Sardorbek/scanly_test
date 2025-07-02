@@ -1,4 +1,5 @@
 import 'dart:io' show Directory;
+import 'dart:typed_data' show Uint8List;
 
 import 'package:scanly_test/src/domain/model/model.dart';
 
@@ -12,9 +13,17 @@ abstract class ScannerUsecase {
     String directoryPath,
   );
 
+  Future<String?> overwriteImage(
+    Uint8List editedImageBytes,
+    String originalPath, {
+    bool canDelete = true,
+  });
+
   Future<int> saveGroup(Map<String, dynamic> data);
 
   Future<List<ScanGroup>> getAllGroups();
 
   Future<int> updateGroup(ScanGroup group);
+
+  Future<int> deleteGroup(int id);
 }

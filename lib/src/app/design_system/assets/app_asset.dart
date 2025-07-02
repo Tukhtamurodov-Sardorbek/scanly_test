@@ -1,9 +1,13 @@
+enum AssetType { png, svg }
+
 final class AppAsset {
   AppAsset._();
 
   static const String _base = 'assets/images';
 
   static String get arrow => '$_base/arrow.png';
+
+  static String get arrowBack => '$_base/arrow_back.png';
 
   static String get backgroundSquares => '$_base/background_squares.png';
 
@@ -26,4 +30,10 @@ final class AppAsset {
   static String get unsorted => '$_base/unsorted.png';
 
   static String get xMark => '$_base/x_mark.png';
+
+  static String get share => '$_base/share.png';
+
+  static String get edit => '$_base/edit.png';
+
+  static String get add => '$_base/add.png';
 }

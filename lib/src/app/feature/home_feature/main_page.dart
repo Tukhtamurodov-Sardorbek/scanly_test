@@ -56,9 +56,7 @@ class _MainPageState extends State<MainPage> {
             builder: (context, show, _) {
               return AnimatedSwitcher(
                 duration: const Duration(milliseconds: 250),
-                child: show
-                    ? Positioned.fill(child: LoadingView.blur)
-                    : SizedBox.shrink(),
+                child: show ? LoadingView.blur : SizedBox.shrink(),
               );
             },
           ),

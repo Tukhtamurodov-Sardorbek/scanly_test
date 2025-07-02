@@ -39,12 +39,11 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
-    final navigatorModule = _$NavigatorModule();
     final databaseModule = _$DatabaseModule();
     final appBlocModule = _$AppBlocModule();
     final usecaseModule = _$UsecaseModule();
+    final navigatorModule = _$NavigatorModule();
     final repositoryModule = _$RepositoryModule();
-    gh.singleton<_i13.AppRouter>(() => navigatorModule.injectAppRouter());
     await gh.singletonAsync<_i779.Database>(
       () => databaseModule.injectSqflite(),
       preResolve: true,
@@ -60,6 +59,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i683.ThumbnailUsecase>(
       () => usecaseModule.injectThumbnailUsecase(),
     );
+    gh.singleton<_i13.AppRouter>(() => navigatorModule.injectAppRouter());
     gh.singleton<_i607.CunningDocumentScanner>(
       () => repositoryModule.injectCunningDocumentScanner(),
     );
@@ -106,12 +106,12 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$NavigatorModule extends _i85.NavigatorModule {}
-
 class _$DatabaseModule extends _i954.DatabaseModule {}
 
 class _$AppBlocModule extends _i238.AppBlocModule {}
 
 class _$UsecaseModule extends _i372.UsecaseModule {}
+
+class _$NavigatorModule extends _i85.NavigatorModule {}
 
 class _$RepositoryModule extends _i1026.RepositoryModule {}

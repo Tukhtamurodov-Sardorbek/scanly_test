@@ -9,6 +9,7 @@ final class AppColor {
   static const Color text = Color(0xFF280609);
   static const Color textSecondary = Color(0xFF8B7979);
   static const Color textTertiary = Color(0xFF767676);
+  static const Color textQuaternary = Color(0xFF3E3E3E);
 
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
