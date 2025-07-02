@@ -12,7 +12,8 @@ abstract class AppBlocModule {
   // AppReviewCubit provideAppReviewCubit() => AppReviewCubit(InAppReview.instance);
 
   ScannerBloc injectScannerBloc(
+    PdfUsecase pdf,
     ScannerUsecase scanner,
     ThumbnailUsecase thumbnailer,
-  ) => ScannerBloc(scanner, thumbnailer);
+  ) => ScannerBloc(scanner, thumbnailer, pdf);
 }

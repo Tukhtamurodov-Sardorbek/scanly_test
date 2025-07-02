@@ -2,6 +2,15 @@ import 'dart:convert' show jsonEncode, jsonDecode;
 
 import 'package:equatable/equatable.dart';
 
+import '../../core/core.dart';
+
+enum PdfAction {
+  print,
+  share;
+
+  bool get isShare => this == share;
+}
+
 enum SortType {
   latestFirst,
   earliestFirst;
@@ -78,6 +87,8 @@ class ScanGroup extends Equatable {
     thumbnailPath,
     creationTime,
   ];
+
+  String get titleUI => title ?? '${LocaleKeys.document.tr()} $id';
 
   @override
   String toString() {

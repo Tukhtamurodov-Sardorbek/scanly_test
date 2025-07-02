@@ -137,6 +137,7 @@ abstract class  LocaleKeys {
   static const closeEditorWarningConfirmBtn = 'closeEditorWarningConfirmBtn';
   static const closeEditorWarningCancelBtn = 'closeEditorWarningCancelBtn';
   static const doneLoadingMsg = 'doneLoadingMsg';
+  static const scrollToTheEnd = 'scrollToTheEnd';
   static const _ = '_';
 
 }

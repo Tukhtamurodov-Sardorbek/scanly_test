@@ -1,5 +1,5 @@
-import 'dart:io' show File;
+import 'package:scanly_test/src/domain/model/model.dart';
 
 abstract class PdfUsecase {
-  Future<File> generatePdf(List<String> imagePaths, String groupId);
+  Future<String> generatePdf(ScanGroup group);
 }

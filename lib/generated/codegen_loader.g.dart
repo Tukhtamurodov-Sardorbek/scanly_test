@@ -149,6 +149,7 @@ class CodegenLoader extends AssetLoader{
   "closeEditorWarningConfirmBtn": "OK",
   "closeEditorWarningCancelBtn": "Abbrechen",
   "doneLoadingMsg": "Änderungen werden übernommen",
+  "scrollToTheEnd": "Zum Ende scrollen",
   "_": ""
 };
 static const Map<String,dynamic> _ru = {
@@ -285,7 +286,9 @@ static const Map<String,dynamic> _ru = {
   "closeEditorWarningMessage": "Вы уверены, что хотите закрыть редактор? Изменения не будут сохранены.",
   "closeEditorWarningConfirmBtn": "ОК",
   "closeEditorWarningCancelBtn": "Отмена",
-  "doneLoadingMsg": "Применение изменений"
+  "doneLoadingMsg": "Применение изменений",
+  "scrollToTheEnd": "Пролистать до конца",
+  "_": ""
 };
 static const Map<String,dynamic> _pt = {
   "itLanguage": "Italiano",
@@ -421,6 +424,7 @@ static const Map<String,dynamic> _pt = {
   "closeEditorWarningMessage": "Tem certeza de que deseja fechar o Editor de Imagem? Suas alterações não serão salvas.",
   "closeEditorWarningConfirmBtn": "OK",
   "closeEditorWarningCancelBtn": "Cancelar",
+  "scrollToTheEnd": "Rolar até o fim",
   "doneLoadingMsg": "As alterações estão sendo aplicadas",
   "_": ""
 };
@@ -559,6 +563,7 @@ static const Map<String,dynamic> _en = {
   "closeEditorWarningConfirmBtn": "OK",
   "closeEditorWarningCancelBtn": "Cancel",
   "doneLoadingMsg": "Changes are being applied",
+  "scrollToTheEnd": "Scroll to the end",
   "_": ""
 };
 static const Map<String,dynamic> _it = {
@@ -695,7 +700,9 @@ static const Map<String,dynamic> _it = {
   "closeEditorWarningMessage": "Sei sicuro di voler chiudere l'Editor Immagini? Le modifiche non verranno salvate.",
   "closeEditorWarningConfirmBtn": "OK",
   "closeEditorWarningCancelBtn": "Annulla",
-  "doneLoadingMsg": "Modifiche in corso"
+  "scrollToTheEnd": "Scorri fino in fondo",
+  "doneLoadingMsg": "Modifiche in corso",
+  "_": ""
 };
 static const Map<String,dynamic> _fr = {
   "itLanguage": "Italien",
@@ -832,6 +839,7 @@ static const Map<String,dynamic> _fr = {
   "closeEditorWarningConfirmBtn": "OK",
   "closeEditorWarningCancelBtn": "Annuler",
   "doneLoadingMsg": "Les modifications sont en cours d'application",
+  "scrollToTheEnd": "Faire défiler jusqu’en bas",
   "_": ""
 };
 static const Map<String,dynamic> _es = {
@@ -969,6 +977,7 @@ static const Map<String,dynamic> _es = {
   "closeEditorWarningConfirmBtn": "Aceptar",
   "closeEditorWarningCancelBtn": "Cancelar",
   "doneLoadingMsg": "Se están aplicando los cambios",
+  "scrollToTheEnd": "Desplazar al final",
   "_": ""
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"de": _de, "ru": _ru, "pt": _pt, "en": _en, "it": _it, "fr": _fr, "es": _es};

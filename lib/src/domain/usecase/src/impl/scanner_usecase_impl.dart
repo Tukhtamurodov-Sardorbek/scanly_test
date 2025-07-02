@@ -103,7 +103,19 @@ final class ScannerUsecaseImpl implements ScannerUsecase {
   Future<int> updateGroup(ScanGroup group) => _repository.updateGroup(group);
 
   @override
-  Future<int> deleteGroup(int id) => _repository.deleteGroup(id);
+  Future<int> deleteGroup(ScanGroup group) async {
+    try {
+      await compute(_deleter, group.imagesPath);
+    } catch (e, s) {
+      printException(
+        'During group deletion',
+        exception: e.toString(),
+        stack: s.toString(),
+      );
+    }
+    final result = await _repository.deleteGroup(group.id);
+    return result;
+  }
 }
 
 Future<String?> _replacer(Map<String, dynamic> params) async {
@@ -155,4 +167,12 @@ Future<List<String>> _mover(Map<String, dynamic> params) async {
     } catch (e) {}
   }
   return savedPaths;
+}
+
+Future<void> _deleter(List<String> imagesPath) async {
+  for (String imagePath in imagesPath) {
+    try {
+      await File(imagePath).delete();
+    } catch (e) {}
+  }
 }

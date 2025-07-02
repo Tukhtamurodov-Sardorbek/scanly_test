@@ -133,5 +133,6 @@
   "closeEditorWarningConfirmBtn": "Aceptar",
   "closeEditorWarningCancelBtn": "Cancelar",
   "doneLoadingMsg": "Se están aplicando los cambios",
+  "scrollToTheEnd": "Desplazar al final",
   "_": ""
 }

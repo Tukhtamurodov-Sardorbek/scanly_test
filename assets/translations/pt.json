@@ -132,6 +132,7 @@
   "closeEditorWarningMessage": "Tem certeza de que deseja fechar o Editor de Imagem? Suas alterações não serão salvas.",
   "closeEditorWarningConfirmBtn": "OK",
   "closeEditorWarningCancelBtn": "Cancelar",
+  "scrollToTheEnd": "Rolar até o fim",
   "doneLoadingMsg": "As alterações estão sendo aplicadas",
   "_": ""
 }

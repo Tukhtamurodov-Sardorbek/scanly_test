@@ -7,8 +7,11 @@ sealed class ScannerState extends Equatable {
 
   const factory ScannerState.loading() = _Loading;
 
-  const factory ScannerState.loaded(List<ScanGroup> data, SortType type) =
-      _Loaded;
+  const factory ScannerState.loaded(
+    List<ScanGroup> data,
+    SortType type, {
+    _PdfData? pdf,
+  }) = _Loaded;
 
   const factory ScannerState.loadedEmpty() = _LoadedEmpty;
 
@@ -16,13 +19,13 @@ sealed class ScannerState extends Equatable {
     required T Function() init,
     required T Function() loading,
     required T Function() loadedEmpty,
-    required T Function(List<ScanGroup>, SortType type) loaded,
+    required T Function(List<ScanGroup>, SortType type, _PdfData? pdf) loaded,
   }) {
     return switch (this) {
       _Initial() => init(),
       _Loading() => loading(),
       _LoadedEmpty() => loadedEmpty(),
-      _Loaded(:final data, :final type) => loaded(data, type),
+      _Loaded(:final data, :final type, :final pdf) => loaded(data, type, pdf),
     };
   }
 
@@ -30,13 +33,17 @@ sealed class ScannerState extends Equatable {
     T Function()? init,
     T Function()? loading,
     T Function()? loadedEmpty,
-    T Function(List<ScanGroup>, SortType type)? loaded,
+    T Function(List<ScanGroup>, SortType type, _PdfData? pdf)? loaded,
   }) {
     return switch (this) {
       _Initial() => init?.call(),
       _Loading() => loading?.call(),
       _LoadedEmpty() => loadedEmpty?.call(),
-      _Loaded(:final data, :final type) => loaded?.call(data, type),
+      _Loaded(:final data, :final type, :final pdf) => loaded?.call(
+        data,
+        type,
+        pdf,
+      ),
     };
   }
 
@@ -44,7 +51,7 @@ sealed class ScannerState extends Equatable {
     T Function()? init,
     T Function()? loading,
     T Function()? loadedEmpty,
-    T Function(List<ScanGroup>, SortType type)? loaded,
+    T Function(List<ScanGroup>, SortType type, _PdfData? pdf)? loaded,
     required T Function() orElse,
   }) {
     return whenOrNull(
@@ -73,12 +80,13 @@ final class _Loading extends ScannerState {
 
 final class _Loaded extends ScannerState {
   final SortType type;
+  final _PdfData? pdf;
   final List<ScanGroup> data;
 
-  const _Loaded(this.data, this.type) : super._();
+  const _Loaded(this.data, this.type, {this.pdf}) : super._();
 
   @override
-  List<Object> get props => [data, type];
+  List<Object?> get props => [data, type, pdf];
 
   @override
   String toString() {
@@ -91,4 +99,16 @@ final class _LoadedEmpty extends ScannerState {
 
   @override
   List<Object> get props => [];
+}
+
+class _PdfData {
+  final ScanGroup group;
+  final String path;
+  final PdfAction action;
+
+  const _PdfData({
+    required this.group,
+    required this.path,
+    required this.action,
+  });
 }

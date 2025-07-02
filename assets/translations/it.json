@@ -132,5 +132,7 @@
   "closeEditorWarningMessage": "Sei sicuro di voler chiudere l'Editor Immagini? Le modifiche non verranno salvate.",
   "closeEditorWarningConfirmBtn": "OK",
   "closeEditorWarningCancelBtn": "Annulla",
-  "doneLoadingMsg": "Modifiche in corso"
+  "scrollToTheEnd": "Scorri fino in fondo",
+  "doneLoadingMsg": "Modifiche in corso",
+  "_": ""
 }

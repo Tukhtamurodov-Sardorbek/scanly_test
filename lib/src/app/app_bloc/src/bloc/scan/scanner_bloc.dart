@@ -6,22 +6,22 @@ import 'package:bloc_concurrency/bloc_concurrency.dart' show restartable;
 import 'package:equatable/equatable.dart';
 import 'package:scanly_test/src/app/app_bloc/app_bloc.dart';
 import 'package:scanly_test/src/domain/model/model.dart';
-import 'package:scanly_test/src/domain/usecase/src/scanner_usecase.dart';
-import 'package:scanly_test/src/domain/usecase/src/thumbnail_usecase.dart';
-
-import '../../../../../domain/core/core.dart';
+import 'package:scanly_test/src/domain/usecase/usecase.dart';
+import 'package:scanly_test/src/domain/core/core.dart';
 
 part 'scanner_event.dart';
 
 part 'scanner_state.dart';
 
 class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
+  final PdfUsecase _pdfHandler;
   final ScannerUsecase _scanner;
   final ThumbnailUsecase _thumbnailer;
-  SortType type = SortType.latestFirst;
+  SortType _type = SortType.latestFirst;
   List<ScanGroup> _data = [];
 
-  ScannerBloc(this._scanner, this._thumbnailer) : super(ScannerState.init()) {
+  ScannerBloc(this._scanner, this._thumbnailer, this._pdfHandler)
+    : super(ScannerState.init()) {
     on<_SortGroup>(_onSorted);
     on<_SearchGroup>(_onSearch, transformer: restartable());
     on<ScannerEvent>((event, emit) async {
@@ -31,6 +31,8 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
         onRenamed: (group) => _onRenamed(group, emit),
         onDeleted: (group) => _onDeleted(group, emit),
         onExpanded: (group) => _onExpanded(group, emit),
+        onPdfGenerated: (group, action) =>
+            _onPdfGeneration(group, action, emit),
         onScanOverwritten: (bts, im, th, gr) =>
             _onScanOverwritten(bts, im, th, gr, emit),
       );
@@ -40,11 +42,10 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
   Future<void> _retrieveAllGroups(Emitter<ScannerState> emit) async {
     final data = await _scanner.getAllGroups();
     _data = List.from(data);
-    type = SortType.latestFirst;
     if (_data.isEmpty) {
       emit(ScannerState.loadedEmpty());
     } else {
-      emit(ScannerState.loaded(_data, type));
+      emit(ScannerState.loaded(_data, _type));
     }
   }
 
@@ -81,7 +82,7 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
 
   FutureOr<void> _onSorted(_SortGroup event, Emitter<ScannerState> emit) {
     final copy = state.maybeWhen(
-      loaded: (data, _) => data,
+      loaded: (data, _, _) => data,
       orElse: () => _data,
     );
     if (event.type.isLatestFirst) {
@@ -90,11 +91,11 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
       copy.sort((a, b) => a.creationTime.compareTo(b.creationTime));
     }
 
-    type = event.type;
+    _type = event.type;
     if (copy.isEmpty) {
       emit(ScannerState.loadedEmpty());
     } else {
-      emit(ScannerState.loaded(List.from(copy), type));
+      emit(ScannerState.loaded(List.from(copy), _type));
     }
   }
 
@@ -118,7 +119,8 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
     if (result.isEmpty) {
       emit(ScannerState.loadedEmpty());
     } else {
-      emit(ScannerState.loaded(result, SortType.latestFirst));
+      _type = SortType.latestFirst;
+      emit(ScannerState.loaded(result, _type));
     }
   }
 
@@ -128,7 +130,7 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
   }
 
   Future<void> _onDeleted(ScanGroup group, Emitter<ScannerState> emit) async {
-    final count = await _scanner.deleteGroup(group.id);
+    final count = await _scanner.deleteGroup(group);
     await _retrieveAllGroups(emit);
   }
 
@@ -212,5 +214,21 @@ class ScannerBloc extends Bloc<ScannerEvent, ScannerState> {
     );
     await _retrieveAllGroups(emit);
      */
+  }
+
+  Future<void> _onPdfGeneration(
+    ScanGroup group,
+    PdfAction action,
+    Emitter<ScannerState> emit,
+  ) async {
+    emit(ScannerState.loading());
+    final path = await _pdfHandler.generatePdf(group);
+    emit(
+      ScannerState.loaded(
+        _data,
+        _type,
+        pdf: _PdfData(group: group, path: path, action: action),
+      ),
+    );
   }
 }

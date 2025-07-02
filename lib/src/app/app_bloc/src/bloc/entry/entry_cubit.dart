@@ -16,9 +16,10 @@ class EntryCubit extends Cubit<EntryState> {
     if (times == 0) {
       emit(const EntryState.notIntroduced());
     } else {
-      emit(EntryState.introduced(times == 1));
+      // final openRatePage = times == 1;
+      emit(EntryState.introduced());
     }
-    // _updateRunTime();
-    _usecase.clearStorage();
+    _updateRunTime();
+    // _usecase.clearStorage();
   }
 }

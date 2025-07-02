@@ -7,24 +7,24 @@ sealed class EntryState extends Equatable {
 
   const factory EntryState.notIntroduced() = _NotIntroducedState;
 
-  const factory EntryState.introduced(bool openRatePage) = _IntroducedState;
+  const factory EntryState.introduced() = _IntroducedState;
 
   T when<T>({
     required T Function() initial,
     required T Function() notIntroduced,
-    required T Function(bool) introduced,
+    required T Function() introduced,
   }) {
     return switch (this) {
       _InitialState() => initial(),
       _NotIntroducedState() => notIntroduced(),
-      _IntroducedState(:final openRatePage) => introduced(openRatePage),
+      _IntroducedState() => introduced(),
     };
   }
 
   T maybeWhen<T>({
     T Function()? initial,
     T Function()? notIntroduced,
-    T Function(bool)? introduced,
+    T Function()? introduced,
     required T Function() orElse,
   }) {
     return whenOrNull(
@@ -38,12 +38,12 @@ sealed class EntryState extends Equatable {
   T? whenOrNull<T>({
     T Function()? initial,
     T Function()? notIntroduced,
-    T Function(bool)? introduced,
+    T Function()? introduced,
   }) {
     return switch (this) {
       _InitialState() => initial?.call(),
       _NotIntroducedState() => notIntroduced?.call(),
-      _IntroducedState(:final openRatePage) => introduced?.call(openRatePage),
+      _IntroducedState() => introduced?.call(),
     };
   }
 }
@@ -63,9 +63,8 @@ final class _NotIntroducedState extends EntryState {
 }
 
 final class _IntroducedState extends EntryState {
-  const _IntroducedState(this.openRatePage) : super._();
-  final bool openRatePage;
+  const _IntroducedState() : super._();
 
   @override
-  List<Object?> get props => [openRatePage];
+  List<Object?> get props => [];
 }

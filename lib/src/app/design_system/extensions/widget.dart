@@ -63,18 +63,18 @@ extension WidgetExt on Widget {
     );
   }
 
-  Widget wrapWithVerticalAnimation({int index = 0, int milliseconds = 1000}) {
+  Widget verticalAnimationWrapper({int index = 0, int milliseconds = 680}) {
     return VerticalAnimationItemWrapper(
-      position: index,
       milliseconds: milliseconds,
+      position: index,
       child: this,
     );
   }
 
-  Widget verticalAnimationWrapper({int index = 0, int milliseconds = 680}) {
-    return VerticalAnimationItemWrapper(
-      position: index,
+  Widget horizontalAnimationWrapper({int index = 0, int milliseconds = 740}) {
+    return HorizontalAnimationItemWrapper(
       milliseconds: milliseconds,
+      position: index,
       child: this,
     );
   }

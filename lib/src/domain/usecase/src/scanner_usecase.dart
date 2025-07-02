@@ -25,5 +25,5 @@ abstract class ScannerUsecase {
 
   Future<int> updateGroup(ScanGroup group);
 
-  Future<int> deleteGroup(int id);
+  Future<int> deleteGroup(ScanGroup group);
 }

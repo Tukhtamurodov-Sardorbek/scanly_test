@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image/image.dart' as img;
 import 'package:pro_image_editor/pro_image_editor.dart';
 import 'package:scanly_test/src/app/app_bloc/app_bloc.dart';
 import 'package:scanly_test/src/app/design_system/colors/app_color.dart';

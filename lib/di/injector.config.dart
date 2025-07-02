@@ -92,6 +92,7 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i39.ScannerBloc>(
       () => appBlocModule.injectScannerBloc(
+        gh<_i683.PdfUsecase>(),
         gh<_i683.ScannerUsecase>(),
         gh<_i683.ThumbnailUsecase>(),
       ),

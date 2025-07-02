@@ -4,7 +4,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:scanly_test/src/app/feature/entry_feature/entry_pages_wrapper.dart';
 import 'package:scanly_test/src/app/feature/entry_feature/screens/onboard_page.dart';
-import 'package:scanly_test/src/app/feature/entry_feature/screens/rate_page.dart';
 import 'package:scanly_test/src/app/feature/home_feature/details_page/details_page.dart';
 import 'package:scanly_test/src/app/feature/home_feature/editor_page/editor_page.dart';
 import 'package:scanly_test/src/app/feature/home_feature/home_page/home_page.dart';
@@ -27,7 +26,6 @@ class AppRouter extends RootStackRouter {
       page: EntryRoutesWrapper.page,
       children: [
         AutoRoute(path: '', page: SplashRoute.page),
-        AutoRoute(path: 'rate', page: RateRoute.page),
         AutoRoute(path: 'onboard', page: OnboardRoute.page),
       ],
     ),

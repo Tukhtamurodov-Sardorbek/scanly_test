@@ -213,22 +213,6 @@ class OnboardRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [RatePage]
-class RateRoute extends PageRouteInfo<void> {
-  const RateRoute({List<PageRouteInfo>? children})
-    : super(RateRoute.name, initialChildren: children);
-
-  static const String name = 'RateRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const RatePage());
-    },
-  );
-}
-
-/// generated route for
 /// [SplashPage]
 class SplashRoute extends PageRouteInfo<void> {
   const SplashRoute({List<PageRouteInfo>? children})

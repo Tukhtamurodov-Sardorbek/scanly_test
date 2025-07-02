@@ -50,13 +50,13 @@ class _SplashPageState extends State<SplashPage> {
         GetAppNavigator.entryNavigator().navigateOnboardingPage(context);
         _canNavigate = false;
       },
-      introduced: (openRatePage) {
+      introduced: () {
         _canNavigate = false;
-        if (openRatePage) {
-          GetAppNavigator.entryNavigator().navigateRatePage(context);
-        } else {
+        // if (openRatePage) {
+        //   GetAppNavigator.entryNavigator().navigateRatePage(context);
+        // } else {
           GetAppNavigator.mainNavigator().navigateToMainPage(context);
-        }
+        // }
       },
     );
   }

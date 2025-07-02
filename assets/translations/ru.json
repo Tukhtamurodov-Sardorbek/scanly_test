@@ -132,5 +132,7 @@
   "closeEditorWarningMessage": "Вы уверены, что хотите закрыть редактор? Изменения не будут сохранены.",
   "closeEditorWarningConfirmBtn": "ОК",
   "closeEditorWarningCancelBtn": "Отмена",
-  "doneLoadingMsg": "Применение изменений"
+  "doneLoadingMsg": "Применение изменений",
+  "scrollToTheEnd": "Пролистать до конца",
+  "_": ""
 }

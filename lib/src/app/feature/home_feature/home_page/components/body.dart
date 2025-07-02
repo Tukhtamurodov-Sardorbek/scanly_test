@@ -24,8 +24,22 @@ class _BodyViewState extends State<_BodyView> {
           loading: () {
             MainPage.of(context).obscureScreen.value = true;
           },
-          loaded: (_, _) {
+          loaded: (_, _, pdf) {
             MainPage.of(context).obscureScreen.value = false;
+            if (pdf != null) {
+              openCupertinoBottomSheet(
+                context: context,
+                enableDrag: false,
+                backgroundColor: AppColor.primaryBackground,
+                constraints: BoxConstraints(maxHeight: 0.96.sh),
+                builder: (_, color) => AppPdfBottomSheetContent(
+                  pdf.path,
+                  pdf.group,
+                  pdf.action,
+                  backgroundColors: color,
+                ),
+              );
+            }
           },
         );
       },
@@ -35,7 +49,7 @@ class _BodyViewState extends State<_BodyView> {
             init: () => true,
             loading: () => false,
             loadedEmpty: () => true,
-            loaded: (_, type) {
+            loaded: (_, type, _) {
               _sortType = type;
               return true;
             },
@@ -44,7 +58,7 @@ class _BodyViewState extends State<_BodyView> {
         builder: (context, state) {
           return SliverFillRemaining(
             hasScrollBody: state.maybeWhen(
-              loaded: (_, _) => true,
+              loaded: (_, _, _) => true,
               orElse: () => false,
             ),
             child: Padding(
@@ -105,8 +119,27 @@ class _BodyViewState extends State<_BodyView> {
                               children: [
                                 AnimatedSwitcher(
                                   duration: const Duration(milliseconds: 250),
+                                  transitionBuilder: (child, animation) {
+                                    final curved = CurvedAnimation(
+                                      parent: animation,
+                                      curve: Curves.ease,
+                                    );
+                                    return FadeTransition(
+                                      opacity: Tween(
+                                        begin: 0.2,
+                                        end: 1.0,
+                                      ).animate(curved),
+                                      child: ScaleTransition(
+                                        scale: Tween(
+                                          begin: 0.4,
+                                          end: 1.0,
+                                        ).animate(curved),
+                                        child: child,
+                                      ),
+                                    );
+                                  },
                                   child: state.maybeWhen(
-                                    loaded: (data, type) {
+                                    loaded: (data, type, _) {
                                       if (data.isEmpty) {
                                         return SizedBox.shrink();
                                       }
@@ -122,8 +155,7 @@ class _BodyViewState extends State<_BodyView> {
                                                     'unsorted_view',
                                                   ),
                                                   onTap: alterFilter,
-                                                  splashType:
-                                                      SplashType.noSplash,
+                                        withBouncingAnimation: true,
                                                 )
                                           : AppAsset.sorted
                                                 .displayImage(
@@ -133,8 +165,7 @@ class _BodyViewState extends State<_BodyView> {
                                                 .buttonize(
                                                   key: ValueKey('sorted_view'),
                                                   onTap: alterFilter,
-                                                  splashType:
-                                                      SplashType.noSplash,
+                                        withBouncingAnimation: true,
                                                 );
                                     },
                                     orElse: () => SizedBox.shrink(),
@@ -150,14 +181,18 @@ class _BodyViewState extends State<_BodyView> {
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 250),
                           child: state.maybeWhen(
-                            loaded: (data, _) {
-                              return ListView.separated(
-                                itemCount: data.length,
-                                padding: EdgeInsets.zero,
-                                separatorBuilder: (_, _) => 14.verticalSpace,
-                                itemBuilder: (context, index) {
-                                  return _ListTile(data[index]);
-                                },
+                            loaded: (data, _, _) {
+                              return AnimationLimiter(
+                                child: ListView.separated(
+                                  itemCount: data.length,
+                                  padding: EdgeInsets.zero,
+                                  separatorBuilder: (_, _) => 14.verticalSpace,
+                                  itemBuilder: (context, index) {
+                                    return _ListTile(
+                                      data[index],
+                                    ).verticalAnimationWrapper(index: index);
+                                  },
+                                ),
                               );
                             },
                             orElse: () => _EmptyView(),

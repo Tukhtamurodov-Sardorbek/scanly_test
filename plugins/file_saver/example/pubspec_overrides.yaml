@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: file_saver
+dependency_overrides:
+  file_saver:
+    path: ..

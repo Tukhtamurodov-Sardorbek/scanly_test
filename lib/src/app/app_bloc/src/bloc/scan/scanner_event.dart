@@ -17,6 +17,9 @@ sealed class ScannerEvent extends Equatable {
 
   const factory ScannerEvent.expandGroup(ScanGroup group) = _ExpandGroup;
 
+  const factory ScannerEvent.generatePdf(ScanGroup group, PdfAction action) =
+      _GeneratePdf;
+
   const factory ScannerEvent.overwriteScan({
     required Uint8List editedImageBytes,
     required String path,
@@ -32,6 +35,7 @@ sealed class ScannerEvent extends Equatable {
     required T Function(ScanGroup group) onRenamed,
     required T Function(ScanGroup group) onDeleted,
     required T Function(ScanGroup group) onExpanded,
+    required T Function(ScanGroup group, PdfAction action) onPdfGenerated,
     required T Function(
       Uint8List editedImageBytes,
       String path,
@@ -48,6 +52,10 @@ sealed class ScannerEvent extends Equatable {
       _RenameGroup(:final group) => onRenamed(group),
       _DeleteGroup(:final group) => onDeleted(group),
       _ExpandGroup(:final group) => onExpanded(group),
+      _GeneratePdf(:final group, :final action) => onPdfGenerated(
+        group,
+        action,
+      ),
       _EditPicture(
         :final editedImageBytes,
         :final path,
@@ -66,6 +74,7 @@ sealed class ScannerEvent extends Equatable {
     T Function(ScanGroup group)? onRenamed,
     T Function(ScanGroup group)? onDeleted,
     T Function(ScanGroup group)? onExpanded,
+    T Function(ScanGroup group, PdfAction action)? onPdfGenerated,
     T Function(
       Uint8List editedImageBytes,
       String path,
@@ -82,6 +91,10 @@ sealed class ScannerEvent extends Equatable {
       _RenameGroup(:final group) => onRenamed?.call(group),
       _DeleteGroup(:final group) => onDeleted?.call(group),
       _ExpandGroup(:final group) => onExpanded?.call(group),
+      _GeneratePdf(:final group, :final action) => onPdfGenerated?.call(
+        group,
+        action,
+      ),
       _EditPicture(
         :final editedImageBytes,
         :final path,
@@ -167,4 +180,14 @@ final class _ExpandGroup extends ScannerEvent {
 
   @override
   List<Object?> get props => [group];
+}
+
+final class _GeneratePdf extends ScannerEvent {
+  final ScanGroup group;
+  final PdfAction action;
+
+  const _GeneratePdf(this.group, this.action) : super._();
+
+  @override
+  List<Object?> get props => [group, action];
 }
