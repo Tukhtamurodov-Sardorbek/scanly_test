@@ -73,7 +73,6 @@ class _HomePageState extends State<HomePage> {
             return [
               // RateMyAppRateButton(instance, text: 'OK'),
               // RateMyAppLaterButton(_rateMyApp, text: LocaleKeys.notNow.tr()),
-
               Text(
                 'OK',
                 style: AppTextStyle.w400.modifier(
