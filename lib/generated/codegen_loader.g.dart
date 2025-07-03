@@ -33,7 +33,7 @@ class CodegenLoader extends AssetLoader{
   "tapAStarToRateItOnTheAppStore": "Tippe auf einen Stern, um sie im App Store zu bewerten",
   "notNow": "Nicht jetzt",
   "search": "Suchen",
-  "oneMomentPleaseWait": "Einen Moment bitte...",
+  "oneMomentPleaseWait": "Einen Moment bitte",
   "noDocumentFound": "Kein Dokument gefunden",
   "tapTheButtonBellowToScanOrConvertToPDF": "Tippe auf die Schaltfläche unten,\num zu scannen oder in PDF zu konvertieren",
   "rename": "Umbenennen",
@@ -150,7 +150,7 @@ class CodegenLoader extends AssetLoader{
   "closeEditorWarningCancelBtn": "Abbrechen",
   "doneLoadingMsg": "Änderungen werden übernommen",
   "scrollToTheEnd": "Zum Ende scrollen",
-  "_": ""
+  "localeShortKey": "de"
 };
 static const Map<String,dynamic> _ru = {
   "itLanguage": "Итальянский",
@@ -171,7 +171,7 @@ static const Map<String,dynamic> _ru = {
   "tapAStarToRateItOnTheAppStore": "Нажмите на звезду, чтобы оценить в App Store",
   "notNow": "Не сейчас",
   "search": "Поиск",
-  "oneMomentPleaseWait": "Подождите, пожалуйста...",
+  "oneMomentPleaseWait": "Подождите, пожалуйста",
   "noDocumentFound": "Документы не найдены",
   "tapTheButtonBellowToScanOrConvertToPDF": "Нажмите кнопку ниже,\nчтобы сканировать или преобразовать в PDF",
   "rename": "Переименовать",
@@ -288,7 +288,7 @@ static const Map<String,dynamic> _ru = {
   "closeEditorWarningCancelBtn": "Отмена",
   "doneLoadingMsg": "Применение изменений",
   "scrollToTheEnd": "Пролистать до конца",
-  "_": ""
+  "localeShortKey": "ru"
 };
 static const Map<String,dynamic> _pt = {
   "itLanguage": "Italiano",
@@ -426,7 +426,7 @@ static const Map<String,dynamic> _pt = {
   "closeEditorWarningCancelBtn": "Cancelar",
   "scrollToTheEnd": "Rolar até o fim",
   "doneLoadingMsg": "As alterações estão sendo aplicadas",
-  "_": ""
+  "localeShortKey": "pt"
 };
 static const Map<String,dynamic> _en = {
   "itLanguage": "Italian",
@@ -564,7 +564,7 @@ static const Map<String,dynamic> _en = {
   "closeEditorWarningCancelBtn": "Cancel",
   "doneLoadingMsg": "Changes are being applied",
   "scrollToTheEnd": "Scroll to the end",
-  "_": ""
+  "localeShortKey": "en"
 };
 static const Map<String,dynamic> _it = {
   "itLanguage": "Italiano",
@@ -702,7 +702,7 @@ static const Map<String,dynamic> _it = {
   "closeEditorWarningCancelBtn": "Annulla",
   "scrollToTheEnd": "Scorri fino in fondo",
   "doneLoadingMsg": "Modifiche in corso",
-  "_": ""
+  "localeShortKey": "it"
 };
 static const Map<String,dynamic> _fr = {
   "itLanguage": "Italien",
@@ -840,7 +840,7 @@ static const Map<String,dynamic> _fr = {
   "closeEditorWarningCancelBtn": "Annuler",
   "doneLoadingMsg": "Les modifications sont en cours d'application",
   "scrollToTheEnd": "Faire défiler jusqu’en bas",
-  "_": ""
+  "localeShortKey": "fr"
 };
 static const Map<String,dynamic> _es = {
   "itLanguage": "Italiano",
@@ -978,7 +978,7 @@ static const Map<String,dynamic> _es = {
   "closeEditorWarningCancelBtn": "Cancelar",
   "doneLoadingMsg": "Se están aplicando los cambios",
   "scrollToTheEnd": "Desplazar al final",
-  "_": ""
+  "localeShortKey": "es"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"de": _de, "ru": _ru, "pt": _pt, "en": _en, "it": _it, "fr": _fr, "es": _es};
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scanly_test/src/app/design_system/design_system.dart';
 import 'package:scanly_test/src/app/design_system/widgets/animations/animation_effect.dart';
 import 'package:scanly_test/src/app/design_system/widgets/animations/animation_list_view_item.dart';
@@ -63,7 +62,7 @@ extension WidgetExt on Widget {
     );
   }
 
-  Widget verticalAnimationWrapper({int index = 0, int milliseconds = 680}) {
+  Widget verticalAnimationWrapper({int index = 0, int milliseconds = 480}) {
     return VerticalAnimationItemWrapper(
       milliseconds: milliseconds,
       position: index,

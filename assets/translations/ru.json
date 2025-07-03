@@ -17,7 +17,7 @@
   "tapAStarToRateItOnTheAppStore": "Нажмите на звезду, чтобы оценить в App Store",
   "notNow": "Не сейчас",
   "search": "Поиск",
-  "oneMomentPleaseWait": "Подождите, пожалуйста...",
+  "oneMomentPleaseWait": "Подождите, пожалуйста",
   "noDocumentFound": "Документы не найдены",
   "tapTheButtonBellowToScanOrConvertToPDF": "Нажмите кнопку ниже,\nчтобы сканировать или преобразовать в PDF",
   "rename": "Переименовать",
@@ -134,5 +134,5 @@
   "closeEditorWarningCancelBtn": "Отмена",
   "doneLoadingMsg": "Применение изменений",
   "scrollToTheEnd": "Пролистать до конца",
-  "_": ""
+  "localeShortKey": "ru"
 }

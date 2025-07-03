@@ -17,7 +17,7 @@
   "tapAStarToRateItOnTheAppStore": "Tippe auf einen Stern, um sie im App Store zu bewerten",
   "notNow": "Nicht jetzt",
   "search": "Suchen",
-  "oneMomentPleaseWait": "Einen Moment bitte...",
+  "oneMomentPleaseWait": "Einen Moment bitte",
   "noDocumentFound": "Kein Dokument gefunden",
   "tapTheButtonBellowToScanOrConvertToPDF": "Tippe auf die Schaltfläche unten,\num zu scannen oder in PDF zu konvertieren",
   "rename": "Umbenennen",
@@ -134,5 +134,5 @@
   "closeEditorWarningCancelBtn": "Abbrechen",
   "doneLoadingMsg": "Änderungen werden übernommen",
   "scrollToTheEnd": "Zum Ende scrollen",
-  "_": ""
+  "localeShortKey": "de"
 }

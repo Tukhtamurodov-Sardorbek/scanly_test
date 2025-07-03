@@ -138,6 +138,6 @@ abstract class  LocaleKeys {
   static const closeEditorWarningCancelBtn = 'closeEditorWarningCancelBtn';
   static const doneLoadingMsg = 'doneLoadingMsg';
   static const scrollToTheEnd = 'scrollToTheEnd';
-  static const _ = '_';
+  static const localeShortKey = 'localeShortKey';
 
 }

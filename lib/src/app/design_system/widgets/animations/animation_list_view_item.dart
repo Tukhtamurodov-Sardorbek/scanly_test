@@ -21,7 +21,7 @@ class HorizontalAnimationItemWrapper extends StatelessWidget {
       child: SlideAnimation(
         duration: Duration(milliseconds: milliseconds),
         curve: Curves.fastLinearToSlowEaseIn,
-        horizontalOffset: 100.0,
+        horizontalOffset: 80.0,
         child: FadeInAnimation(
           curve: Curves.fastLinearToSlowEaseIn,
           duration: Duration(milliseconds: milliseconds),
@@ -53,7 +53,7 @@ class VerticalAnimationItemWrapper extends StatelessWidget {
       child: SlideAnimation(
         duration: Duration(milliseconds: milliseconds),
         curve: Curves.fastLinearToSlowEaseIn,
-        verticalOffset: 50.0,
+        verticalOffset: 80.0,
         child: FadeInAnimation(
           curve: Curves.fastLinearToSlowEaseIn,
           duration: Duration(milliseconds: milliseconds),

@@ -29,7 +29,7 @@ class _AnimatedTypingDotsState extends State<AnimatedTypingDots>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 1200),
     )..addListener(_updateDots);
     _controller.repeat();
   }
@@ -57,11 +57,12 @@ class _AnimatedTypingDotsState extends State<AnimatedTypingDots>
         style: style,
         children: [
           TextSpan(text: widget.localeKey.tr()),
-          for (int i = 0; i < widget.maxDots; i++)
-            TextSpan(
+          ...List.generate(widget.maxDots, (index) {
+            return TextSpan(
               text: '.',
-              style: i < _visibleDotCount ? style : transparentStyle,
-            ),
+              style: index < _visibleDotCount ? style : transparentStyle,
+            );
+          }),
         ],
       ),
     );

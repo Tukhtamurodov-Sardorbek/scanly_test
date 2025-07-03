@@ -11,6 +11,26 @@ class _AppBar extends StatelessWidget {
       stretch: true,
       alwaysShowMiddle: false,
       middle: Text('PixelScan'),
+      padding: const EdgeInsetsDirectional.only(start: 8, end: 4),
+      trailing:
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Icon(
+              CupertinoIcons.globe,
+              size: 26,
+              color: AppColor.primaryTone,
+            ),
+          ).buttonize(
+            onTap: () {
+              openCupertinoBottomSheet(
+                context: context,
+                enableDrag: false,
+                expand: false,
+                backgroundColor: AppColor.primaryBackground,
+                builder: (_, clr) => LanguagesBottomsheetContent(),
+              );
+            },
+          ),
       largeTitle: AppAsset.logo.displayImage(width: 150, height: 34),
       bottomMode: NavigationBarBottomMode.always,
       bottom: PreferredSize(
